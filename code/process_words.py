@@ -57,5 +57,5 @@ def set_tag_words(tag_words):
     open_file(NEW_WORDS_PATH,"a",tag_words)
 
 if __name__=="__main__":
-    tag_words={"中国共产党"}
+    tag_words={"爱情"}
     set_tag_words(tag_words)
