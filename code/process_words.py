@@ -1,11 +1,7 @@
-from  process_txt import *
+from  process_words_txt import *
 from process_config import *
+import constant
 import requests
-
-API_PATH=get_file_path("api")
-NEW_WORDS_PATH = get_file_path("new_words")
-STOP_WORDS_PATH = get_file_path("stop_words")
-TAG_WORDS_PATH = get_file_path("tag_words")
 
 def sync_local_stop_words(api_path):
     """
@@ -15,7 +11,7 @@ def sync_local_stop_words(api_path):
     """
     r = requests.get(api_path)
     text=r.text.strip("\n")
-    with open(STOP_WORDS_PATH,"w",encoding="utf-8") as f:
+    with open(config_constant.STOP_WORDS_PATH, "w", encoding="utf-8") as f:
         f.write(text)
 
 def sync_tag_to_new():
@@ -23,8 +19,8 @@ def sync_tag_to_new():
     同步关键词库到新词库中。
     :return:
     """
-    tag_words=open_file(TAG_WORDS_PATH, "r")
-    open_file(NEW_WORDS_PATH,"a",tag_words)
+    tag_words=open_file(config_constant.TAG_WORDS_PATH, "r")
+    open_file(config_constant.NEW_WORDS_PATH, "a", tag_words)
 
 def set_stop_words(stop_words):
     """
@@ -34,13 +30,13 @@ def set_stop_words(stop_words):
     :param stop_words:所添加的停止词，集合形式。
     :return:无。
     """
-    open_file(STOP_WORDS_PATH,"a",stop_words)
-    tag_words=open_file(TAG_WORDS_PATH,"r")
+    open_file(config_constant.STOP_WORDS_PATH, "a", stop_words)
+    tag_words=open_file(config_constant.TAG_WORDS_PATH, "r")
     tag_words=tag_words-stop_words
-    new_words=open_file(NEW_WORDS_PATH,"r")
+    new_words=open_file(config_constant.NEW_WORDS_PATH, "r")
     new_words=new_words-stop_words
-    open_file(TAG_WORDS_PATH,"w",tag_words)
-    open_file(NEW_WORDS_PATH,"w",new_words)
+    open_file(config_constant.TAG_WORDS_PATH, "w", tag_words)
+    open_file(config_constant.NEW_WORDS_PATH, "w", new_words)
 
 def set_tag_words(tag_words):
     """
@@ -50,12 +46,11 @@ def set_tag_words(tag_words):
     :param tag_words:添加的自定义的关键词，集合形式。
     :return:无。
     """
-    open_file(TAG_WORDS_PATH,"a",tag_words)
-    stop_words=open_file(STOP_WORDS_PATH,"r")
+    open_file(config_constant.TAG_WORDS_PATH, "a", tag_words)
+    stop_words=open_file(config_constant.STOP_WORDS_PATH, "r")
     stop_words=stop_words-tag_words
-    open_file(STOP_WORDS_PATH,"w",stop_words)
-    open_file(NEW_WORDS_PATH,"a",tag_words)
+    open_file(config_constant.STOP_WORDS_PATH, "w", stop_words)
+    open_file(config_constant.NEW_WORDS_PATH, "a", tag_words)
 
 if __name__=="__main__":
-    tag_words={"爱情"}
-    set_tag_words(tag_words)
+    pass

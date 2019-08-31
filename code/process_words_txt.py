@@ -1,4 +1,4 @@
-#读写res文件下的.txt文件操作，专门用于new_words.txt、stop_words.txt、tag_words.txt。
+#读写res文件下new_words.txt、stop_words.txt、tag_words.txt。
 
 def open_file(path, operator, new_set={""}):
     """
