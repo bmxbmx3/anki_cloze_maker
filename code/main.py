@@ -91,7 +91,7 @@ def ask_to_set_words():
     交互式询问添加新词/关键词/停止词的操作。
     :return: 无。
     """
-    answer = input("请添加新词/关键词/停止词。[new/tag/stop ...(添加的词用空格分开)]\n")
+    answer = input("请添加新词/关键词/停止词。[new/tag/stop ...(...为添加的词，用空格分开)]\n")
     answer_list = answer.split(" ")
     operator = answer_list[0]
     words = set(answer_list[1:])
