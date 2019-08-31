@@ -39,7 +39,7 @@ yinzm所作的[常用的中文停用词表](https://github.com/yinzm/ChineseStop
 
 在此前提下，anki_cloze_maker主要针对批量制作带填空的anki卡片的问题，通过关键词挖空生成符合[anki手册](http://ankichina.net/Index/ankishouce)的填空文本，能够顺利导入anki中供使用者学习。
 
-## 填空格式
+## 填空符
 按anki手册的规范生成的填空文本格式如下：
 
 >秋天的{{c1::山野}}，到处是火红火红的{{c2::枫叶}}，朝霞初照，像落在山腰的{{c3::红云彩}}；晚霞辉映，像一团团玛瑙。
@@ -55,7 +55,7 @@ yinzm所作的[常用的中文停用词表](https://github.com/yinzm/ChineseStop
 ### 新词、关键词、停止词
 
 #### 新词
-anki_cloze_maker有时不能很好地分辨新的词汇，故可以通过添加新词的方式使其更好地将词汇从文本中分辨出来。
+anki_cloze_maker有时不能很好地分辨新的词汇，故可以通过添加新词的方式使其更好地将词汇从文本中分辨出来，也即新词是为了更好地分词。
 
 比如anki_cloze_maker通过解析生成以下填空文本：
 
@@ -65,9 +65,9 @@ anki_cloze_maker有时不能很好地分辨新的词汇，故可以通过添加�
 
 >{{c1::中国人民解放军}}。
 
-但要注意的是，新词只是为了anki_cloze_maker可以更好地分辨出程序所不能认知的词汇，但不一定对它生成填空符。
+但要注意的是，新词只是为了anki_cloze_maker可以更好地分辨出其所不能认知的词，但不一定对它生成填空符。
 
-新词定义在新词库[new_word.txt](https://github.com/bmxbmx3/anki_cloze_maker/blob/master/res/new_words.txt)中。
+自定义的新词存在新词库[new_word.txt](https://github.com/bmxbmx3/anki_cloze_maker/blob/master/res/new_words.txt)中。
 
 #### 关键词
 anki_cloze_maker只对关键词生成填空符，关键词包括jieba的tf-idf算法按权重生成的关键词，及自定义的关键词。如果你对anki_cloze_maker生成的填空文本不满意，可以自定义作为填空的关键词。
@@ -82,8 +82,62 @@ anki_cloze_maker只对关键词生成填空符，关键词包括jieba的tf-idf�
 
 只要自定义了关键词，anki_cloze_maker就可以将它自动同步到新词库中，并从停止词库中删除。
 
-关键词定义在关键词库[tag_word.txt](https://github.com/bmxbmx3/anki_cloze_maker/blob/master/res/tag_words.txt)中。
+自定义的关键存在关键词库[tag_word.txt](https://github.com/bmxbmx3/anki_cloze_maker/blob/master/res/tag_words.txt)中。
 
 #### 停止词
+anki_cloze_maker不对停止词生成填空符，jieba的tf-idf算法可以将之从文本中过滤。
 
-### 空格率
+比如anki_cloze_maker通过解析生成以下填空文本：
+
+>看着{{c1::人潮}}涌动，我的{{c2::泪}}不禁流了下来。
+
+如果你不想对“泪”一词生成填空符，可以将其标记为停止词，anki_cloze_maker会生成如下文本：
+
+>看着{{c1::人潮}}涌动，我的泪不禁流了下来。
+
+只要自定义了停止词，anki_cloze_maker就可以将它添加到停止词库中，并从新词库和关键词库中删除。
+
+自定义的停止词存在停止词库[tag_word.txt](https://github.com/bmxbmx3/anki_cloze_maker/blob/master/res/stop_words.txt)中。
+
+#### 新词、关键词、停止词间的关系
++ 新词不一定作为填空。
++ 关键词一定作为填空。
++ 停止词不能作为填空。
++ 新词一定包含关键词，但不等同于关键词。
++ 关键词包括自定义的关键词和jieba找寻的关键词。
++ 停止词与关键词、新词互斥。
+
+新词、关键词、停止词的关系可以用下图表示：
+
+#### 词库格式
+自定义的新词、关键词、停止词分别放入对应.txt文件的词库中，词库的基本格式为每行一个词，anki_cloze_maker对词库按集合的方式读写，保证每个词库里不会出现重复的词，如果你在自定义的词库中添加无用的空行或重复的词，anki_cloze_maker会将词库重新整理为每行不重复的词的集合，并删去空行。
+
+【图片】
+
+### 空格
+#### 每定长字符数
+每定长字符数是指一定量的多少个字符作为一个字符数的单位，用来计算空格率。
+
+#### 每定长字符数中所含的空格数
+每定长字符数中所含的空格数是指一个字符数的单位下，所含有的空格个数，用来计算空格率。
+
+#### 有效字符数
+有效字符数是指一段文本出去标点符号、空格等对记忆无用的字符之外的字符总数，用来计算空格率。
+
+比如以下文本：
+
+>小明问我，WTO 是什么意思？
+
+这段文本的字符数为15，但有效字符数为12（除去了空格、标点符号）。
+
+#### 空格率
+空格率是指空格在一段文本中出现的百分比。
+
+计算公式为：空格率=每定长字符数/每定长字符数中所含的空格数。
+
+#### 空格数
+空格数是指一段文本按空格率计算所得的空格总数。
+
+计算公式为：空格数（对结果向下取整）=有效字符数×空格率。
+
+如果计算所得空格数为0，系统会自动将空格数置为1。
