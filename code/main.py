@@ -55,15 +55,31 @@ def ask_to_set_cloze():
     交互式询问建立填空。
     :return:无。
     """
-    in_path=input("请输入源文件的路径：\n")
-    in_path_last=os.path.splitext(in_path)[-1]
-    if os.path.isfile(in_path) and in_path_last==".txt":
+    in_path=""
+    out_path=""
+    while True:
+        in_path = input("请输入源文件的路径：\n")
         divide()
+        in_path_last = os.path.splitext(in_path)[-1]
+        if not os.path.exists(in_path) and in_path_last!=".txt":
+            print("请输入正确的文件路径！")
+            divide()
+            continue
+        else:
+            break
+
+    while True:
         out_path = input("请输入目标文件的路径：\n")
         divide()
-        save_cloze_text(in_path,out_path)
-    else:
-        print("请输入正确的文件路径！")
+        out_path_last = os.path.splitext(out_path)[-1]
+        if out_path_last != ".txt":
+            print("请输入正确的文件路径！")
+            divide()
+            continue
+        else:
+            break
+
+    save_cloze_text(in_path, out_path)
 
 def ask_to_set_words():
     """
@@ -101,12 +117,15 @@ def ask_to_set_blanks_rate():
             print("请输入正数！\n")
             divide()
             continue
+        else:
+            break
 
+    while True:
         try:
             per_word_count=int(input("请输入每定长字符数：\n"))
             divide()
         except ValueError:
-            print("请输入整数！")
+            print("请输入正确的整数！")
             divide()
             continue
         if per_word_count<=0:
@@ -119,6 +138,7 @@ def ask_to_set_blanks_rate():
             divide()
         else:
             break
+
     set_blanks_rate(blanks_per_word_count,per_word_count)
     print("成功设置空格率！")
     divide()
@@ -178,6 +198,7 @@ def ask_to_set_cloze_index():
 
 
 if __name__ == "__main__":
+    #程序运行前，必须执行这一步，初始化所用的常量到内存中。
     config_constant.init_all_constant()
-    print(config_constant.CLOZE_INDEX_SWITCH)
-    # ask_to_set_cloze()
+
+    ask_to_set_cloze()

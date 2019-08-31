@@ -1,5 +1,5 @@
 #存放常量的类
-from process_config import *
+import process_config as pg
 
 class config_constant:
     CONFIG_PATH="./config.ini"
@@ -11,11 +11,11 @@ class config_constant:
 
     @staticmethod
     def init_all_constant():
-        config_constant.API_PATH = get_file_path("api")
-        config_constant.NEW_WORDS_PATH = get_file_path("new_words")
-        config_constant.STOP_WORDS_PATH = get_file_path("stop_words")
-        config_constant.TAG_WORDS_PATH = get_file_path("tag_words")
-        config_constant.CLOZE_INDEX_SWITCH = get_cloze_index_switch()
+        config_constant.API_PATH = pg.get_file_path("api")
+        config_constant.NEW_WORDS_PATH = pg.get_file_path("new_words")
+        config_constant.STOP_WORDS_PATH = pg.get_file_path("stop_words")
+        config_constant.TAG_WORDS_PATH = pg.get_file_path("tag_words")
+        config_constant.CLOZE_INDEX_SWITCH = pg.get_cloze_index_switch()
 
 if __name__=="__main__":
     config_constant.init_all_constant()
