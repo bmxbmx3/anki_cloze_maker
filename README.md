@@ -37,7 +37,7 @@ yinzm所作的[常用的中文停用词表](https://github.com/yinzm/ChineseStop
 ## 解决问题
 本人查阅了anki批量制卡的工具，很不幸比较少，虽然有一款名为[Word Query](https://ankiweb.net/shared/info/775418273)的比较出色的工具可以辅助提高学习者批量制作单词卡的效率，但因为每个人的需求不同，对anki模板的选择也有所不同，故尚未有功能比较完备的批量制卡工具。
 
-在此前提下，anki_cloze_maker主要针对批量制作带填空的anki卡片的问题，通过关键词挖空生成符合[anki手册](http://ankichina.net/Index/ankishouce)的填空文本，能够顺利导入anki中供使用者学习。
+在此前提下，anki_cloze_maker主要针对批量制作带填空的anki卡片的问题，通过对系统自动查找到的关键词挖空，生成符合[anki手册](http://ankichina.net/Index/ankishouce)的填空文本，能够顺利导入anki中供使用者学习。
 
 ## 填空符
 按anki手册的规范生成的填空文本格式如下：
