@@ -104,6 +104,7 @@ def ask_to_set_words():
     print("添加成功！")
     divide()
 
+
 def ask_to_set_blanks_rate():
     """
     交互式询问设置空格率。
@@ -208,6 +209,8 @@ def ask_to_set_cloze_index():
             divide()
 
 # 运行主程序入口
+
+
 def main():
     while True:
         # 程序运行前，必须执行这一步，初始化所用的常量到内存中。
@@ -219,7 +222,7 @@ def main():
             "4": ask_to_set_cloze_index,
             "5": ask_to_sync_stop_words,
             "6": ask_to_set_root_path,
-            "7":""}
+            "7": ""}
 
         start_description = "\n".join(["请选择以下操作[按序号]：",
                                        "1.建立填空",
@@ -231,11 +234,11 @@ def main():
                                        "7.结束程序运行"])
         choose_index = input(start_description + "\n")
         divide()
-        if choose_index not in ["1", "2", "3", "4", "5", "6","7"]:
+        if choose_index not in ["1", "2", "3", "4", "5", "6", "7"]:
             print("请输入正确的序号！")
             divide()
         else:
-            if choose_index=="7":
+            if choose_index == "7":
                 print("成功退出程序！")
                 divide()
                 break
