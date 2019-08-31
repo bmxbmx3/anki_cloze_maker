@@ -102,7 +102,7 @@ def ask_to_set_words():
     elif operator == "new":
         open_file(config_constant.NEW_WORDS_PATH, "a", words)
     print("添加成功！")
-
+    divide()
 
 def ask_to_set_blanks_rate():
     """
@@ -208,8 +208,6 @@ def ask_to_set_cloze_index():
             divide()
 
 # 运行主程序入口
-
-
 def main():
     while True:
         # 程序运行前，必须执行这一步，初始化所用的常量到内存中。
@@ -220,7 +218,8 @@ def main():
             "3": ask_to_set_words,
             "4": ask_to_set_cloze_index,
             "5": ask_to_sync_stop_words,
-            "6": ask_to_set_root_path}
+            "6": ask_to_set_root_path,
+            "7":""}
 
         start_description = "\n".join(["请选择以下操作[按序号]：",
                                        "1.建立填空",
@@ -228,20 +227,20 @@ def main():
                                        "3.自定义新词/关键词/停止词",
                                        "4.设置 anki 填空符索引",
                                        "5.更新本地停止词库",
-                                       "6.自定义 anki_cloze_maker 文件根目录"])
+                                       "6.自定义 anki_cloze_maker 文件根目录",
+                                       "7.结束程序运行"])
         choose_index = input(start_description + "\n")
         divide()
-        if choose_index not in ["1", "2", "3", "4", "5", "6"]:
+        if choose_index not in ["1", "2", "3", "4", "5", "6","7"]:
             print("请输入正确的序号！")
             divide()
         else:
+            if choose_index=="7":
+                print("成功退出程序！")
+                divide()
+                break
             # 执行对应序号操作
             choose[choose_index]()
-            answer = input("是否停止后续操作？[y/n]\n")
-            divide()
-            if answer == "y":
-                print("成功退出程序！")
-                break
 
 
 if __name__ == "__main__":
