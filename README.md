@@ -80,6 +80,8 @@ anki_cloze_maker只对关键词生成填空符，关键词包括jieba的tf-idf�
 >{{c1::中国}}有着上下{{c2::五千年}}的历史，是{{c3::世界}}上历史最悠久的国家。
 
 只要自定义了关键词，anki_cloze_maker就可以将它自动同步到新词库中，并从停止词库中删除。
-关键词定义在关键词库[new_word.txt](https://github.com/bmxbmx3/anki_cloze_maker/blob/master/res/new_words.txt)中。
+关键词定义在关键词库[tag_word.txt](https://github.com/bmxbmx3/anki_cloze_maker/blob/master/res/tag_words.txt)中。
+
+### 停止词
 
 ### 空格率
