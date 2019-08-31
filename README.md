@@ -97,7 +97,7 @@ anki_cloze_maker不对停止词生成填空符，jieba的tf-idf算法可以将�
 
 只要自定义了停止词，anki_cloze_maker就可以将它添加到停止词库中，并从新词库和关键词库中删除。
 
-自定义的停止词存在停止词库[tag_word.txt](https://github.com/bmxbmx3/anki_cloze_maker/blob/master/res/stop_words.txt)中。
+自定义的停止词存在停止词库[stop_word.txt](https://github.com/bmxbmx3/anki_cloze_maker/blob/master/res/stop_words.txt)中。
 
 #### 新词、关键词、停止词间的关系
 + 新词不一定作为填空。
