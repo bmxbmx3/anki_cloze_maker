@@ -1,4 +1,5 @@
-#存放常量的类
+#存放常量的地方
+
 import process_config as pg
 
 class config_constant:

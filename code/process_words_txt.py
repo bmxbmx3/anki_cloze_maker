@@ -1,4 +1,5 @@
-#读写res文件下new_words.txt、stop_words.txt、tag_words.txt。
+# 读写res文件下new_words.txt、stop_words.txt、tag_words.txt。
+
 
 def open_file(path, operator, new_set={""}):
     """
@@ -16,8 +17,8 @@ def open_file(path, operator, new_set={""}):
                 new_word = new_word.strip("\n").strip(" ")
                 if new_word != "":
                     tmp_set.add(new_word)
-            #防止文件出现空行。
-            open_file(path,"w",tmp_set)
+            # 防止文件出现空行。
+            open_file(path, "w", tmp_set)
             return tmp_set
         elif operator == "w":
             lines = list(new_set)
@@ -29,7 +30,7 @@ def open_file(path, operator, new_set={""}):
             f.writelines(lines)
         elif operator == "a":
             old_set = open_file(path, "r")
-            #防止文件出现空行。
+            # 防止文件出现空行。
             open_file(path, "w", old_set)
             add_set = new_set - old_set
             if len(add_set) != 0:
