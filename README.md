@@ -7,9 +7,11 @@
 
 ## 感谢
 ### 结巴中文分词
-linhx13等人所作的[结巴中文分词](https://github.com/fxsjy/jieba)，anki_cloze_maker使用它的tf-idf算法提取关键词，再结合自定义的关键词，对其生成填空符。
+github用户“linhx13”等人所作的[结巴中文分词](https://github.com/fxsjy/jieba)，anki_cloze_maker使用它的tf-idf算法提取关键词，再结合自定义的关键词，对其生成填空符。
 ### 中文停止词库来源
-yinzm所作的[常用的中文停用词表](https://github.com/yinzm/ChineseStopWords#中文常用停用词表)， anki_cloze_maker使用它过滤不必要的词，不会生成填空符。
+github用户“yinzm”所作的[常用的中文停用词表](https://github.com/yinzm/ChineseStopWords#中文常用停用词表)， anki_cloze_maker使用它过滤不必要的词，不会生成填空符。
+### anki批量填空与增量阅读
+知乎用户“余时行”的介绍[使用anki批量填空与增量阅读](https://zhuanlan.zhihu.com/p/23838271)的文章,由此诞生制作anki_cloze_maker的灵感。
 
 ## 启发
 本人阅读supermemo的[The 20 rules of formulating knowledge in learning](http://super-memory.com/articles/20rules.htm)，有所启发，特别是第五条Cloze deletion is easy and effective讲述填空的部分，深有感触。第五条揭示了对一段文本可以采用关键词挖空的形式多次记忆，形式如下：
@@ -56,13 +58,15 @@ anki_cloze_maker通过算法计算出一些词的重要程度，如从这句话�
 
 ## 文本编码
 导入anki_cloze_maker处理的.txt文件必须是utf-8编码格式，不然可能会出现异常。同时anki_cloze_maker输出的.txt文件也为utf-8编码格式。
+### 小技巧
+如果你想让windows的记事本默认的文本编码是utf-8，可以参考[这篇文章](https://blog.csdn.net/current_person/article/details/52846752)。
 
 ## 相关概念
 在使用anki_cloze_maker前，请务必理解以下概念。
 
 ### 新词、关键词、停止词
 
-#### 新词
+#### 新词（new word）
 anki_cloze_maker有时不能很好地分辨新的词汇，故可以通过添加新词的方式使其更好地将词汇从文本中分辨出来，也即新词是为了更好地分词。
 
 比如anki_cloze_maker通过解析生成以下填空文本：
@@ -77,7 +81,7 @@ anki_cloze_maker有时不能很好地分辨新的词汇，故可以通过添加�
 
 自定义的新词存在新词库[new_word.txt](https://github.com/bmxbmx3/anki_cloze_maker/blob/master/res/new_words.txt)中。
 
-#### 关键词
+#### 关键词(tag word)
 anki_cloze_maker只对关键词生成填空符，关键词包括jieba的tf-idf算法按权重生成的关键词，及自定义的关键词。如果你对anki_cloze_maker生成的填空文本不满意，可以自定义作为填空的关键词。
 
 比如anki_cloze_maker通过解析生成以下填空文本：
@@ -92,7 +96,7 @@ anki_cloze_maker只对关键词生成填空符，关键词包括jieba的tf-idf�
 
 自定义的关键存在关键词库[tag_word.txt](https://github.com/bmxbmx3/anki_cloze_maker/blob/master/res/tag_words.txt)中。
 
-#### 停止词
+#### 停止词(stop word)
 anki_cloze_maker不对停止词生成填空符，jieba的tf-idf算法可以将之从文本中过滤。
 
 比如anki_cloze_maker通过解析生成以下填空文本：
@@ -205,6 +209,34 @@ anki_cloze_maker默认添加填空符的形式为{{c[索引]::[关键词]}}，�
 强烈建议在下载anki_cloze_maker包后，首次运行时先选择此选项更新anki_cloze_maker包所在的根目录，防止后续脚本运行时出现异常。
 
 根目录格式为：[你自定的文件夹的绝对路径]/anki_cloze_maker
+### 主要命令
+设置新词/关键词/停止词的对应指令为new/tag/stop，主要在引导页的第3个操作选项“自定义新词/关键词/停止词”中运行，当然你也可以在第一个操作选项“建立填空”的操作过程中碰到这些命令。
+
+命令有两种用法：1、指令+词；2、指令。
+
+#### 指令+词
+
+命令的形式为`new/tag/stop [多个词以空格分开]`。
+
+比如你输入：
+
+`new 美丽 可爱`
+
+就可以对应添加“美丽”和“可爱”的新词。
+
+#### 指令
+ 
+命令的形式为`new/tag/stop`。
+
+注意与“指令+词”相区分的是这里的指令后没有词。
+
+这种命令主要用于词库之间的同步，比如你如果觉得用“指令+词”添加词的方式太过麻烦，可以在res文件夹下的new_words.txt（新词库）、tag_words.txt（关键词库）、stop_words.txt（停止词库）中手动修改（添加/删除）你所需的词，然后在引导页选择第3个操作选项“自定义新词/关键词/停止词”，输入`new/tag/stop`指令，就可按新词、关键词、停止词间的关系进行词库之间的同步。
+
+比如你先在tag_words.txt中按词库.txt文件格式自定义所需的关键词，然后在引导页序号3下的操作输入：
+
+`tag`
+
+就可以按三个词库间的关系，将关键词库的词导入到新词库中，同时从停止词库中删除。
 
 ## 相关算法
 anki_cloze_maker借助结巴中文分词的tf-idf算法对文本进行分析后，按权重提取关键词并添加填空符，如果你对tf-idf算法及文本分析比较感兴趣，可以参阅油管主播“开发者学堂”所作的[python文本数据分析系列视频](https://www.youtube.com/watch?v=Xs3hFjGICwg&list=PLGmd9-PCMLhY4tBzO_lCWUUYnF2GmVj1o)。
