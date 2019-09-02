@@ -115,9 +115,15 @@ anki_cloze_maker不对停止词生成填空符，jieba的tf-idf算法可以将�
 + 新词不一定作为填空。
 + 关键词一定作为填空。
 + 停止词不能作为填空。
-+ 新词一定包含关键词，但不等同于关键词。
++ 关键词是新词的子集。
 + 关键词包括自定义的关键词和jieba找寻的关键词。
 + 停止词与关键词、新词互斥。
+
+为了更清晰地解释新词、关键词和停止词这三者的关系，特意用图来表示：
+
+ <div align="lest">
+ <img src="https://github.com/bmxbmx3/anki_cloze_maker/blob/master/res/%E8%AF%8D%E7%9A%84%E5%85%B3%E7%B3%BB.png" width="60%"/>
+</div>
 
 ### 文件格式
 #### 词库.txt文件格式
