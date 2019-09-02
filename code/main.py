@@ -1,8 +1,8 @@
 # 交互式生成填空的文本。
-
-
-from process_text import *
 import os
+
+from process_config import set_blanks_rate, get_file_path, set_path, set_cloze_index_switch
+from process_text import *
 
 
 def divide():
@@ -20,13 +20,23 @@ def save_cloze_text(in_path, out_path):
     :param out_path:输出填空的.txt文件路径。
     :return: 无。
     """
+
+    # 添加填空的文本。
+    cloze_out_lines = []
+    # 初始化tag集合
+    all_tag_words = set()
+
     with open(in_path, "r", encoding="utf-8") as f:
         in_lines = f.readlines()
         in_lines = [in_line.strip("\n") for in_line in in_lines]
-        cloze_out_lines = []
+
         for in_line in in_lines:
             while True:
-                cloze_out_line = "".join(get_cloze_seged_words(in_line))
+
+                # 汇总新tag和旧tag集合
+                cloze_seged_words, all_tag_words = get_cloze_seged_words(in_line, all_tag_words)
+                cloze_out_line = "".join(cloze_seged_words)
+
                 print("经处理后的anki填空形式的分词列表：")
                 print(cloze_out_line)
                 divide()
@@ -42,16 +52,22 @@ def save_cloze_text(in_path, out_path):
             if answer == "y":
                 cloze_out_lines = []
                 for in_line in in_lines:
-                    cloze_out_line = "".join(get_cloze_seged_words(in_line))
+                    cloze_seged_words, all_tag_words = get_cloze_seged_words(in_line, all_tag_words)
+                    cloze_out_line = "".join(cloze_seged_words)
                     cloze_out_lines.append(cloze_out_line)
                 break
         cloze_out_lines = ["".join([cloze_out_line, "\n"])
                            for cloze_out_line in cloze_out_lines]
         cloze_out_lines[-1] = cloze_out_lines[-1].strip("\n")
-        with open(out_path, "w", encoding="utf-8") as m:
-            m.writelines(cloze_out_lines)
-            print("成功保存输出的文件!")
-            divide()
+
+    with open(out_path, "w", encoding="utf-8") as m:
+        m.writelines(cloze_out_lines)
+
+    # 保存所有的关键字
+    set_tag_words(all_tag_words)
+
+    print("成功保存输出的文件!")
+    divide()
 
 
 def ask_to_set_cloze():
@@ -68,7 +84,6 @@ def ask_to_set_cloze():
         if not os.path.exists(in_path) and in_path_last != ".txt":
             print("请输入正确的文件路径！")
             divide()
-            continue
         else:
             break
 
@@ -79,7 +94,6 @@ def ask_to_set_cloze():
         if out_path_last != ".txt":
             print("请输入正确的文件路径！")
             divide()
-            continue
         else:
             break
 
@@ -100,7 +114,7 @@ def ask_to_set_words():
     elif operator == "stop":
         set_stop_words(words)
     elif operator == "new":
-        open_file(config_constant.NEW_WORDS_PATH, "a", words)
+        set_new_words(words)
     print("添加成功！")
     divide()
 
@@ -208,13 +222,12 @@ def ask_to_set_cloze_index():
             print("请输入 True/False ！")
             divide()
 
+
 # 运行主程序入口
 
 
 def main():
     while True:
-        # 程序运行前，必须执行这一步，初始化所用的常量到内存中。
-        config_constant.init_all_constant()
         choose = {
             "1": ask_to_set_cloze,
             "2": ask_to_set_blanks_rate,
@@ -242,8 +255,11 @@ def main():
                 print("成功退出程序！")
                 divide()
                 break
-            # 执行对应序号操作
-            choose[choose_index]()
+            else:
+                # 程序运行前，必须执行这一步，初始化所用的常量到内存中。
+                config_constant.init_all_constant()
+                # 执行对应序号操作
+                choose[choose_index]()
 
 
 if __name__ == "__main__":

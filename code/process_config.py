@@ -1,8 +1,9 @@
 # 对配置文件的一些操作
 
-from configparser import ConfigParser
-from constant import config_constant
 import os
+from configparser import ConfigParser
+
+from constant import config_constant
 
 
 def set_path(file_name, path):
@@ -115,7 +116,3 @@ def set_cloze_index_switch(switch):
     cfg["mode"]["cloze_index_switch"] = str(switch)
     with open(config_constant.CONFIG_PATH, "w") as conf:
         cfg.write(conf)
-
-
-if __name__ == "__main__":
-    get_cloze_index_switch()

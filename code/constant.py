@@ -9,6 +9,8 @@ class config_constant:
     NEW_WORDS_PATH = ""
     STOP_WORDS_PATH = ""
     TAG_WORDS_PATH = ""
+    CHINESE_PINYIN_PATH = ""
+    CHINESE_BIHUA_PATH = ""
     CLOZE_INDEX_SWITCH = True
 
     @staticmethod
@@ -17,9 +19,6 @@ class config_constant:
         config_constant.NEW_WORDS_PATH = pg.get_file_path("new_words")
         config_constant.STOP_WORDS_PATH = pg.get_file_path("stop_words")
         config_constant.TAG_WORDS_PATH = pg.get_file_path("tag_words")
+        config_constant.CHINESE_PINYIN_PATH = pg.get_file_path("chinese_pinyin")
+        config_constant.CHINESE_BIHUA_PATH = pg.get_file_path("chinese_bihua")
         config_constant.CLOZE_INDEX_SWITCH = pg.get_cloze_index_switch()
-
-
-if __name__ == "__main__":
-    config_constant.init_all_constant()
-    print(config_constant.CLOZE_INDEX_SWITCH)
