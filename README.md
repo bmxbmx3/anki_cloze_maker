@@ -9,9 +9,9 @@
 ### 结巴中文分词
 github用户“linhx13”等人所作的[结巴中文分词](https://github.com/fxsjy/jieba)，anki_cloze_maker使用它的tf-idf算法提取关键词，再结合自定义的关键词，对其生成填空符。
 ### 中文停止词库来源
-github用户“yinzm”所作的[常用的中文停用词表](https://github.com/yinzm/ChineseStopWords#中文常用停用词表)， anki_cloze_maker使用它过滤不必要的词，不会生成填空符。
+github用户“yinzm”所作的[常用的中文停用词表](https://github.com/yinzm/ChineseStopWords#中文常用停用词表)，anki_cloze_maker使用它过滤不必要的词，不会生成填空符。
 ### anki批量填空与增量阅读
-知乎用户“余时行”的介绍[使用anki批量填空与增量阅读](https://zhuanlan.zhihu.com/p/23838271)的文章,由此诞生制作anki_cloze_maker的灵感。
+知乎用户“余时行”的介绍[使用anki批量填空与增量阅读](https://zhuanlan.zhihu.com/p/23838271)的文章，由此诞生制作anki_cloze_maker的灵感。
 
 ## 启发
 本人阅读supermemo的[The 20 rules of formulating knowledge in learning](http://super-memory.com/articles/20rules.htm)，有所启发，特别是第五条Cloze deletion is easy and effective讲述填空的部分，深有感触。第五条揭示了对一段文本可以采用关键词挖空的形式多次记忆，形式如下：
@@ -216,7 +216,7 @@ anki_cloze_maker默认添加填空符的形式为{{c[索引]::[关键词]}}，�
 
 根目录格式为：[你自定的文件夹的绝对路径]/anki_cloze_maker
 ### 主要命令
-设置新词/关键词/停止词的对应指令为new/tag/stop，主要在引导页的第3个操作选项“自定义新词/关键词/停止词”中运行，当然你也可以在第一个操作选项“建立填空”的操作过程中碰到这些命令。
+设置新词/关键词/停止词的对应指令为new/tag/stop，主要在引导页的第3个操作选项“自定义新词/关键词/停止词”中运行，当然你也可以在第1个操作选项“建立填空”的操作过程中碰到这些命令。
 
 命令有两种用法：1、指令+词；2、指令。
 
