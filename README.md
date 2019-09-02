@@ -1,5 +1,5 @@
 # anki_cloze_maker
-根据jieba的tf-idf算法，及自定义的关键词，对.txt文件批量生成anki填空符。
+根据结巴中文分词的tf-idf算法，及自定义的关键词，对.txt文件批量生成anki填空符。
 
 ## 目录
   * [运行环境](#运行环境)
