@@ -195,7 +195,7 @@ anki_cloze_maker只是一个python脚本文件,为了易用性和可修改性并
 运行前通过[pip安装一些必要的相关依赖库](https://blog.csdn.net/u012386109/article/details/79778153)，最主要的是jieba、request这两个库，可以参考[python一键安装全部依赖包](https://www.jianshu.com/p/b00277344528)。
 ### 运行anki_cloze_maker
 #### 启动
-从github下载anki_cloze_maker项目的文件后，从里面取出真正有用的anki_cloze_maker文件并放在你自定的文件夹下，打开命令提示符，运行`cd [你自定的文件夹的路径]/anki_cloze_maker/code`命令将当前目录转至anki_cloze_maker的code文件夹下，运行`python main.py`命令启动本程序。
+从github下载anki_cloze_maker项目的文件后，从里面**取出anki_cloze_maker文件**并放在你自定的文件夹下，打开命令提示符，运行`cd [你自定的文件夹的路径]/anki_cloze_maker/code`命令将当前目录转至anki_cloze_maker的code文件夹下，运行`python main.py`命令启动本程序。
 #### 引导页
 如果一切顺利，你可以看到以下的引导页：
 
@@ -213,6 +213,9 @@ anki_cloze_maker只是一个python脚本文件,为了易用性和可修改性并
 其中，如[按序号]这样的包含在中括号的内容是对你该如何操作所作的提示，按此操作即可。
 
 序号1是你最想要的对文本添加填空符的操作，序号2-6是对anki_cloze_maker的相关设置，序号7为退出程序运行。
+
+注意，**首次运行**进入引导页后，一定要选择序号6的操作更新anki_cloze_maker包所在的根目录，防止后续脚本运行时出现异常。
+
 #### 对引导页的操作说明
 ##### 1. 建立填空
 这里导入你想添加填空的.txt文件，按照提示输出添加填空后的.txt文件即可。
@@ -245,9 +248,10 @@ anki_cloze_maker默认添加填空符的形式为{{c[索引]::[关键词]}}，�
 ##### 5. 更新本地停止词库
 如果你想恢复默认的停止词库，选择此选项按提示运行即可。
 ##### 6. 自定义anki_cloze_maker文件根目录（特别关注）
-**强烈建议**在下载anki_cloze_maker包后，**首次运行时先选择此选项**更新anki_cloze_maker包所在的根目录，防止后续脚本运行时出现异常。
+anki_cloze_maker文件根目录即anki_cloze_maker所在的文件路径。
 
-根目录格式为：[你自定的文件夹的绝对路径]/anki_cloze_maker
+根目录格式为：
+>[你自定的文件夹的绝对路径]/anki_cloze_maker
 ### 主要命令
 设置新词/关键词/停止词的对应指令为new/tag/stop，主要在引导页的第3个操作选项“自定义新词/关键词/停止词”中运行，当然你也可以在第1个操作选项“建立填空”的操作过程中碰到这些命令。
 
