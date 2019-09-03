@@ -5,10 +5,9 @@ from process_config import get_valid_blanks_count
 from process_words import *
 
 
-def get_all_tag_words(text, old_all_tag_words):
+def get_all_tag_words(text):
     """
     获取关键词(tag_word.txt+jieba的tf-idf算法)。
-    :param old_all_tag_words:从该文本分析前的所有文本中所提取的已有关键词。
     :param text：输入tf-idf算法待提取关键词的文本。
     :return: 返回关键词的集合all_tag_words,以及相应文本的预期空格数blanks_count。
     """
@@ -25,7 +24,7 @@ def get_all_tag_words(text, old_all_tag_words):
     custom_tag_words = open_file(config_constant.TAG_WORDS_PATH, "r")
 
     # 生成所有的关键词。
-    all_tag_words = tf_idf_tag_words | custom_tag_words | old_all_tag_words
+    all_tag_words = tf_idf_tag_words | custom_tag_words
 
     return all_tag_words, blanks_count
 
@@ -45,15 +44,14 @@ def get_seged_words(text):
     return seged_words
 
 
-def get_cloze_seged_words(text, old_all_tag_words):
+def get_cloze_seged_words(text):
     """
     对给定的文本，获得添加填空后的分词列表。
-    :param old_all_tag_words:从该文本分析前的所有文本中所提取的已有关键词。
     :param text: 输入待加填空的文本。
     :return: 添加填空的分词列表cloze_seged_words。
     """
     seged_words = get_seged_words(text)
-    all_tag_words, blanks_count = get_all_tag_words(text, old_all_tag_words)
+    all_tag_words, blanks_count = get_all_tag_words(text)
     # 对文本所找到关键词的缓存,只用于给 anki 填空符添加索引用。
     tmp_tag_words = []
     cloze_seged_words = []
@@ -88,4 +86,4 @@ def get_cloze_seged_words(text, old_all_tag_words):
             '你所期望的空格数为 %d 个，但超过系统找到的关键词数 %d 个。' %
             (blanks_count, text_tag_count))
         divide()
-    return cloze_seged_words, all_tag_words
+    return cloze_seged_words

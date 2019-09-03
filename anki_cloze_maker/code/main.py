@@ -23,8 +23,6 @@ def save_cloze_text(in_path, out_path):
 
     # 添加填空的文本。
     cloze_out_lines = []
-    # 初始化tag集合
-    all_tag_words = set()
 
     with open(in_path, "r", encoding="utf-8") as f:
         in_lines = f.readlines()
@@ -33,8 +31,7 @@ def save_cloze_text(in_path, out_path):
         for in_line in in_lines:
             while True:
 
-                # 汇总新tag和旧tag集合
-                cloze_seged_words, all_tag_words = get_cloze_seged_words(in_line, all_tag_words)
+                cloze_seged_words = get_cloze_seged_words(in_line)
                 cloze_out_line = "".join(cloze_seged_words)
 
                 print("经处理后的anki填空形式的分词列表：")
@@ -52,7 +49,7 @@ def save_cloze_text(in_path, out_path):
             if answer == "y":
                 cloze_out_lines = []
                 for in_line in in_lines:
-                    cloze_seged_words, all_tag_words = get_cloze_seged_words(in_line, all_tag_words)
+                    cloze_seged_words = get_cloze_seged_words(in_line)
                     cloze_out_line = "".join(cloze_seged_words)
                     cloze_out_lines.append(cloze_out_line)
                 break
@@ -62,9 +59,6 @@ def save_cloze_text(in_path, out_path):
 
     with open(out_path, "w", encoding="utf-8") as m:
         m.writelines(cloze_out_lines)
-
-    # 保存所有的关键字
-    set_tag_words(all_tag_words)
 
     print("成功保存输出的文件!")
     divide()
