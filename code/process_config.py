@@ -1,9 +1,8 @@
 # 对配置文件的一些操作
 
-import os
 from configparser import ConfigParser
-
 from constant import config_constant
+import os
 
 
 def set_path(file_name, path):

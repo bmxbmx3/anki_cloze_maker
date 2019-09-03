@@ -228,6 +228,8 @@ def ask_to_set_cloze_index():
 
 def main():
     while True:
+        # 程序运行前，必须执行这一步，初始化所用的常量到内存中。
+        config_constant.init_all_constant()
         choose = {
             "1": ask_to_set_cloze,
             "2": ask_to_set_blanks_rate,
@@ -236,7 +238,6 @@ def main():
             "5": ask_to_sync_stop_words,
             "6": ask_to_set_root_path,
             "7": ""}
-
         start_description = "\n".join(["请选择以下操作[按序号]：",
                                        "1.建立填空",
                                        "2.自定义空格率",
@@ -256,8 +257,6 @@ def main():
                 divide()
                 break
             else:
-                # 程序运行前，必须执行这一步，初始化所用的常量到内存中。
-                config_constant.init_all_constant()
                 # 执行对应序号操作
                 choose[choose_index]()
 

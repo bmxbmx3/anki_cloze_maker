@@ -22,3 +22,6 @@ class config_constant:
         config_constant.CHINESE_PINYIN_PATH = pg.get_file_path("chinese_pinyin")
         config_constant.CHINESE_BIHUA_PATH = pg.get_file_path("chinese_bihua")
         config_constant.CLOZE_INDEX_SWITCH = pg.get_cloze_index_switch()
+
+if __name__=="__main":
+    print(pg.get_file_path("new_words"))
