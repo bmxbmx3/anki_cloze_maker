@@ -78,7 +78,7 @@ def ask_to_set_cloze():
     in_path = ""
     out_path = ""
     while True:
-        in_path = input("请输入源文件的路径：\n")
+        in_path = input("请输入源文件的路径[源文件需存在且必须有.txt后缀]：\n")
         divide()
         in_path_last = os.path.splitext(in_path)[-1]
         if not os.path.exists(in_path) and in_path_last != ".txt":
@@ -88,7 +88,7 @@ def ask_to_set_cloze():
             break
 
     while True:
-        out_path = input("请输入目标文件的路径：\n")
+        out_path = input("请输入目标文件的路径[目标文件必须有.txt后缀]：\n")
         divide()
         out_path_last = os.path.splitext(out_path)[-1]
         if out_path_last != ".txt":
