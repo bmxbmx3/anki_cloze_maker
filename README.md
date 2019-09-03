@@ -104,7 +104,7 @@ anki_cloze_maker有时不能很好地分辨新的词汇，故可以通过添加�
 
 但要注意的是，新词只是为了anki_cloze_maker可以更好地分辨出其所不能认知的词，但不一定对它生成填空符。
 
-自定义的新词存在新词库[new_word.txt](https://github.com/bmxbmx3/anki_cloze_maker/blob/master/res/new_words.txt)中。
+自定义的新词存在新词库[new_word.txt](https://github.com/bmxbmx3/anki_cloze_maker/blob/master/anki_cloze_maker/res/new_words.txt)中。
 
 #### 关键词(tag word)
 anki_cloze_maker只对关键词生成填空符，关键词包括jieba的tf-idf算法按权重生成的关键词，及自定义的关键词。如果你对anki_cloze_maker生成的填空文本不满意，可以自定义作为填空的关键词。
@@ -119,7 +119,7 @@ anki_cloze_maker只对关键词生成填空符，关键词包括jieba的tf-idf�
 
 只要自定义了关键词，anki_cloze_maker就可以将它自动同步到新词库中，并从停止词库中删除。
 
-自定义的关键存在关键词库[tag_word.txt](https://github.com/bmxbmx3/anki_cloze_maker/blob/master/res/tag_words.txt)中。
+自定义的关键存在关键词库[tag_word.txt](https://github.com/bmxbmx3/anki_cloze_maker/blob/master/anki_cloze_maker/res/tag_words.txt)中。
 
 #### 停止词(stop word)
 anki_cloze_maker不对停止词生成填空符，jieba的tf-idf算法可以将之从文本中过滤。
@@ -134,7 +134,7 @@ anki_cloze_maker不对停止词生成填空符，jieba的tf-idf算法可以将�
 
 只要自定义了停止词，anki_cloze_maker就可以将它添加到停止词库中，并从新词库和关键词库中删除。
 
-自定义的停止词存在停止词库[stop_word.txt](https://github.com/bmxbmx3/anki_cloze_maker/blob/master/res/stop_words.txt)中。
+自定义的停止词存在停止词库[stop_word.txt](https://github.com/bmxbmx3/anki_cloze_maker/blob/master/anki_cloze_maker/res/stop_words.txt)中。
 
 #### 新词、关键词、停止词间的关系
 + 新词不一定作为填空。
