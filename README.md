@@ -147,7 +147,7 @@ anki_cloze_maker不对停止词生成填空符，jieba的tf-idf算法可以将�
 为了更清晰地解释新词、关键词和停止词这三者的关系，特意用图来表示：
 
  <div align="lest">
- <img src="https://github.com/bmxbmx3/anki_cloze_maker/blob/master/res/%E8%AF%8D%E7%9A%84%E5%85%B3%E7%B3%BB.png" width="60%"/>
+ <img src="https://github.com/bmxbmx3/anki_cloze_maker/blob/master/anki_cloze_maker/res/%E8%AF%8D%E7%9A%84%E5%85%B3%E7%B3%BB.png" width="60%"/>
 </div>
 
 ### 文件格式
@@ -195,7 +195,7 @@ anki_cloze_maker只是一个python脚本文件,为了易用性和可修改性并
 运行前通过[pip安装一些必要的相关依赖库](https://blog.csdn.net/u012386109/article/details/79778153)，最主要的是jieba、request这两个库，可以参考[python一键安装全部依赖包](https://www.jianshu.com/p/b00277344528)。
 ### 运行anki_cloze_maker
 #### 启动
-从github下载anki_cloze_maker项目的文件后，从里面**取出anki_cloze_maker文件**并放在你自定的文件夹下，打开命令提示符，运行`cd [你自定的文件夹的路径]/anki_cloze_maker/code`命令将当前目录转至anki_cloze_maker的code文件夹下，运行`python main.py`命令启动本程序。
+从github下载anki_cloze_maker项目的文件后，从里面**取出[anki_cloze_maker](https://github.com/bmxbmx3/anki_cloze_maker/tree/master/anki_cloze_maker)文件夹**并放在你自定的文件夹下，打开命令提示符，运行`cd [你自定的文件夹的路径]/anki_cloze_maker/code`命令将当前目录转至anki_cloze_maker的code文件夹下，运行`python main.py`命令启动本程序。
 #### 引导页
 如果一切顺利，你可以看到以下的引导页：
 
@@ -214,7 +214,7 @@ anki_cloze_maker只是一个python脚本文件,为了易用性和可修改性并
 
 序号1是你最想要的对文本添加填空符的操作，序号2-6是对anki_cloze_maker的相关设置，序号7为退出程序运行。
 
-注意，**首次运行**进入引导页后，一定要选择序号6的操作更新anki_cloze_maker包所在的根目录，防止后续脚本运行时出现异常。
+注意，**首次运行**进入引导页后，一定要选择**序号6**的操作更新anki_cloze_maker包所在的根目录，防止后续脚本运行时出现异常，对根目录的解释请见“操作说明”第6条。
 
 #### 对引导页的操作说明
 ##### 1. 建立填空
