@@ -198,7 +198,7 @@ anki_cloze_maker只是一个python脚本文件,为了易用性和可修改性并
 从github下载anki_cloze_maker项目的文件后，从里面**取出[anki_cloze_maker](https://github.com/bmxbmx3/anki_cloze_maker/tree/master/anki_cloze_maker)文件夹**并放在你自定的文件夹下，即如图：
 
  <div align="left">
- <img src="https://github.com/bmxbmx3/anki_cloze_maker/blob/master/anki_cloze_maker/res/%E8%AF%8D%E7%9A%84%E5%85%B3%E7%B3%BB.png" width="60%"/>
+ <img src="https://github.com/bmxbmx3/anki_cloze_maker/blob/master/anki_cloze_maker/res/anki_cloze_maker%E6%96%87%E4%BB%B6%E5%A4%B9%E4%BD%8D%E7%BD%AE.png" width="60%"/>
 </div>
 
 打开命令提示符，运行`cd [你自定的文件夹的路径]/anki_cloze_maker/code`命令将当前目录转至anki_cloze_maker的code文件夹下，运行`python main.py`命令启动本程序。
