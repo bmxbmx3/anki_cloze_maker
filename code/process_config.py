@@ -1,7 +1,7 @@
 # 对配置文件的一些操作
 
+from constant import *
 from configparser import ConfigParser
-from constant import config_constant
 import os
 
 

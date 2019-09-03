@@ -186,7 +186,7 @@ def ask_to_set_root_path():
     """
     while True:
         root_path = input(
-            "请设置 anki_cloze_maker 所在的根目录[.../anki_cloze_maker]:\n")
+            "请设置 anki_cloze_maker 所在的根目录[.../anki_cloze_maker 该路径必须存在]:\n")
         divide()
         root_path_last = os.path.split(root_path)[-1]
         if not os.path.isdir(
