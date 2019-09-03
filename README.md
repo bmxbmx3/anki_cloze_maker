@@ -195,7 +195,7 @@ anki_cloze_maker只是一个python脚本文件,为了易用性和可修改性并
 运行前通过[pip安装一些必要的相关依赖库](https://blog.csdn.net/u012386109/article/details/79778153)，最主要的是jieba、request这两个库，可以参考[python一键安装全部依赖包](https://www.jianshu.com/p/b00277344528)。
 ### 运行anki_cloze_maker
 #### 启动
-从github下载anki_cloze_maker包，并放在你自定的文件夹下，打开命令提示符，运行`cd [你自定的文件夹的路径]/anki_cloze_maker/code`命令将当前目录转至anki_cloze_maker的code文件夹下，运行`python main.py`命令启动本程序。
+从github下载anki_cloze_maker项目的文件后，从里面取出真正有用的anki_cloze_maker文件并放在你自定的文件夹下，打开命令提示符，运行`cd [你自定的文件夹的路径]/anki_cloze_maker/code`命令将当前目录转至anki_cloze_maker的code文件夹下，运行`python main.py`命令启动本程序。
 #### 引导页
 如果一切顺利，你可以看到以下的引导页：
 
