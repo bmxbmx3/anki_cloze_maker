@@ -27,7 +27,7 @@
   * [维护](#维护)
 
 ## 运行环境
-1. Windows系统
+1. 跨平台（Python可运行的环境）
 2. Python3
 
 ## 感谢
@@ -39,7 +39,7 @@ github用户“yinzm”所作的[常用的中文停用词表](https://github.com
 知乎用户“余时行”的介绍[使用anki批量填空与增量阅读](https://zhuanlan.zhihu.com/p/23838271)的文章，由此诞生制作anki_cloze_maker的灵感。
 
 ## 启发
-本人阅读supermemo的[The 20 rules of formulating knowledge in learning](http://super-memory.com/articles/20rules.htm)，有所启发，特别是第五条Cloze deletion is easy and effective讲述填空的部分，深有感触。第五条揭示了对一段文本可以采用关键词挖空的形式多次记忆，形式如下：
+本人阅读supermemo的[The 20 rules of formulating knowledge in learning](http://super-memory.com/articles/20rules.htm)（中文版请见[这篇文章](https://www.jianshu.com/p/163462164a5b)），有所启发，特别是第五条Cloze deletion is easy and effective讲述填空的部分，深有感触。第五条揭示了对一段文本可以采用关键词挖空的形式多次记忆，形式如下：
 
 >问：秋天的...(填空)，到处是火红火红的枫叶，朝霞初照，像落在山腰的红云彩；晚霞辉映，像一团团玛瑙。
 
@@ -59,7 +59,7 @@ github用户“yinzm”所作的[常用的中文停用词表](https://github.com
 
 可以看到，通过对一句话分批记忆每个填空，最后再一次性记忆所有的填空，可以大大提高学习效率。
 
-当然，你也可以将知识点进一步拆分，采用自问自答的方式强化记忆，但由于自己设置问题需要花费一定的功夫，故不建议这么做。如果没有多少时间，最好采用填空的形式辅助记忆。
+当然，你也可以根据第4条信息最小化原则**将知识点进一步拆分**，采用自问自答的方式强化记忆，但由于自己设置问题需要花费一定的功夫，故不建议这么做。如果没有多少时间，最好采用填空的形式辅助记忆。
 
 ## 解决问题
 本人查阅了anki批量制卡的工具，很不幸比较少，虽然有一款名为[Word Query](https://ankiweb.net/shared/info/775418273)的比较出色的工具可以辅助提高学习者批量制作单词卡的效率，但因为每个人的需求不同，对anki模板的选择也有所不同，故尚未有功能比较完备的批量制卡工具。
@@ -104,7 +104,7 @@ anki_cloze_maker有时不能很好地分辨新的词汇，故可以通过添加�
 
 但要注意的是，新词只是为了anki_cloze_maker可以更好地分辨出其所不能认知的词，但不一定对它生成填空符。
 
-自定义的新词存在新词库[new_word.txt](https://github.com/bmxbmx3/anki_cloze_maker/blob/master/anki_cloze_maker/res/new_words.txt)中。
+自定义的新词存在新词库[new_words.txt](https://github.com/bmxbmx3/anki_cloze_maker/blob/master/anki_cloze_maker/res/new_words.txt)中。
 
 #### 关键词(tag word)
 anki_cloze_maker只对关键词生成填空符，关键词包括jieba的tf-idf算法按权重生成的关键词，及自定义的关键词。如果你对anki_cloze_maker生成的填空文本不满意，可以自定义作为填空的关键词。
@@ -119,7 +119,9 @@ anki_cloze_maker只对关键词生成填空符，关键词包括jieba的tf-idf�
 
 只要自定义了关键词，anki_cloze_maker就可以将它自动同步到新词库中，并从停止词库中删除。
 
-自定义的关键存在关键词库[tag_word.txt](https://github.com/bmxbmx3/anki_cloze_maker/blob/master/anki_cloze_maker/res/tag_words.txt)中。
+自定义的关键主要存在关键词库[tag_words.txt](https://github.com/bmxbmx3/anki_cloze_maker/blob/master/anki_cloze_maker/res/tag_words.txt)中。
+
+同时，tag_words.txt中除了你自定义的关键词，anki_cloze_maker会将系统根据算法自动找到的关键词保存到这个文件中。
 
 #### 停止词(stop word)
 anki_cloze_maker不对停止词生成填空符，jieba的tf-idf算法可以将之从文本中过滤。
@@ -134,7 +136,7 @@ anki_cloze_maker不对停止词生成填空符，jieba的tf-idf算法可以将�
 
 只要自定义了停止词，anki_cloze_maker就可以将它添加到停止词库中，并从新词库和关键词库中删除。
 
-自定义的停止词存在停止词库[stop_word.txt](https://github.com/bmxbmx3/anki_cloze_maker/blob/master/anki_cloze_maker/res/stop_words.txt)中。
+自定义的停止词存在停止词库[stop_words.txt](https://github.com/bmxbmx3/anki_cloze_maker/blob/master/anki_cloze_maker/res/stop_words.txt)中。
 
 #### 新词、关键词、停止词间的关系
 + 新词不一定作为填空。
@@ -198,7 +200,7 @@ anki_cloze_maker只是一个python脚本文件,为了易用性和可修改性并
 从github下载anki_cloze_maker项目的文件后，从里面**取出[anki_cloze_maker](https://github.com/bmxbmx3/anki_cloze_maker/tree/master/anki_cloze_maker)文件夹**并放在你自定的文件夹下，即如图：
 
  <div align="left">
- <img src="https://github.com/bmxbmx3/anki_cloze_maker/blob/master/anki_cloze_maker/res/%E8%AF%8D%E7%9A%84%E5%85%B3%E7%B3%BB.png" width="60%"/>
+ <img src="https://github.com/bmxbmx3/anki_cloze_maker/blob/master/anki_cloze_maker/res/anki_cloze_maker%E6%96%87%E4%BB%B6%E5%A4%B9%E4%BD%8D%E7%BD%AE.png" width="60%"/>
 </div>
 
 打开命令提示符，运行`cd [你自定的文件夹的路径]/anki_cloze_maker/code`命令将当前目录转至anki_cloze_maker的code文件夹下，运行`python main.py`命令启动本程序。
