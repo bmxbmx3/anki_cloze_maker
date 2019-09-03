@@ -39,7 +39,7 @@ github用户“yinzm”所作的[常用的中文停用词表](https://github.com
 知乎用户“余时行”的介绍[使用anki批量填空与增量阅读](https://zhuanlan.zhihu.com/p/23838271)的文章，由此诞生制作anki_cloze_maker的灵感。
 
 ## 启发
-本人阅读supermemo的[The 20 rules of formulating knowledge in learning](http://super-memory.com/articles/20rules.htm)，有所启发，特别是第五条Cloze deletion is easy and effective讲述填空的部分，深有感触。第五条揭示了对一段文本可以采用关键词挖空的形式多次记忆，形式如下：
+本人阅读supermemo的[The 20 rules of formulating knowledge in learning](http://super-memory.com/articles/20rules.htm)（中文版请见[这篇文章](https://www.jianshu.com/p/163462164a5b)），有所启发，特别是第五条Cloze deletion is easy and effective讲述填空的部分，深有感触。第五条揭示了对一段文本可以采用关键词挖空的形式多次记忆，形式如下：
 
 >问：秋天的...(填空)，到处是火红火红的枫叶，朝霞初照，像落在山腰的红云彩；晚霞辉映，像一团团玛瑙。
 
@@ -59,7 +59,7 @@ github用户“yinzm”所作的[常用的中文停用词表](https://github.com
 
 可以看到，通过对一句话分批记忆每个填空，最后再一次性记忆所有的填空，可以大大提高学习效率。
 
-当然，你也可以将知识点进一步拆分，采用自问自答的方式强化记忆，但由于自己设置问题需要花费一定的功夫，故不建议这么做。如果没有多少时间，最好采用填空的形式辅助记忆。
+当然，你也可以根据第4条信息最小化原则**将知识点进一步拆分**，采用自问自答的方式强化记忆，但由于自己设置问题需要花费一定的功夫，故不建议这么做。如果没有多少时间，最好采用填空的形式辅助记忆。
 
 ## 解决问题
 本人查阅了anki批量制卡的工具，很不幸比较少，虽然有一款名为[Word Query](https://ankiweb.net/shared/info/775418273)的比较出色的工具可以辅助提高学习者批量制作单词卡的效率，但因为每个人的需求不同，对anki模板的选择也有所不同，故尚未有功能比较完备的批量制卡工具。
