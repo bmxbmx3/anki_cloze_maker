@@ -121,8 +121,6 @@ anki_cloze_maker只对关键词生成填空符，关键词包括jieba的tf-idf�
 
 自定义的关键主要存在关键词库[tag_words.txt](https://github.com/bmxbmx3/anki_cloze_maker/blob/master/anki_cloze_maker/res/tag_words.txt)中。
 
-同时，tag_words.txt中除了你自定义的关键词，anki_cloze_maker会将系统根据算法自动找到的关键词保存到这个文件中。
-
 #### 停止词(stop word)
 anki_cloze_maker不对停止词生成填空符，jieba的tf-idf算法可以将之从文本中过滤。
 
