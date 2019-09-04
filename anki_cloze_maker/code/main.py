@@ -3,6 +3,7 @@ import os
 
 from process_config import set_blanks_rate, get_file_path, set_path, set_cloze_index_switch
 from process_text import *
+from process_cloze_notation import *
 
 
 def divide():
@@ -217,6 +218,55 @@ def ask_to_set_cloze_index():
             divide()
 
 
+def ask_to_operate_cloze():
+    """
+    交互式询问对填空符的操作。
+    :return:无。
+    """
+    while True:
+        operate_cloze_description = "\n".join(
+            ["请选择对填空符相应的操作[按序号]：", "1.对填空符添加索引", "2.对填空符去除索引", "3.去除填空符", "4.由填空符导入关键词"])
+        choose_index = input(operate_cloze_description + "\n")
+        divide()
+        choose = {
+            "1": add_cloze_index,
+            "2": remove_cloze_index,
+            "3": remove_cloze,
+            "4": get_tag_from_cloze}
+        if choose_index not in ["1", "2", "3", "4"]:
+            print("请输入正确的序号！")
+            divide()
+        else:
+            # 输入文件的路径
+            in_path = ""
+            # 输出文件的路径
+            out_path = ""
+
+            while True:
+                in_path = input("请输入源文件的路径[源文件的路径存在且必须有.txt后缀]:\n")
+                divide()
+                in_path_last = os.path.splitext(in_path)[-1]
+                if os.path.exists(in_path) and in_path_last == ".txt":
+                    break
+                else:
+                    print("请输入正确的文件路径！")
+                    divide()
+
+            if choose_index in ["1", "2", "3"]:
+                while True:
+                    out_path = input("请输入目标文件的路径[源文件的路径必须有.txt后缀]:\n")
+                    divide()
+                    out_path_last = os.path.splitext(out_path)[-1]
+                    if out_path_last == ".txt":
+                        break
+                    else:
+                        print("请输入正确的文件路径！")
+                        divide()
+            choose[choose_index](in_path, out_path)
+            print("处理成功！")
+            divide()
+            break
+
 # 运行主程序入口
 
 
@@ -231,7 +281,8 @@ def main():
             "4": ask_to_set_cloze_index,
             "5": ask_to_sync_stop_words,
             "6": ask_to_set_root_path,
-            "7": ""}
+            "7": ask_to_operate_cloze,
+            "8": ""}
         start_description = "\n".join(["请选择以下操作[按序号]：",
                                        "1.建立填空",
                                        "2.自定义空格率",
@@ -239,14 +290,15 @@ def main():
                                        "4.设置 anki 填空符索引",
                                        "5.更新本地停止词库",
                                        "6.自定义 anki_cloze_maker 文件根目录",
-                                       "7.结束程序运行"])
+                                       "7.对填空符的操作",
+                                       "8.结束程序运行"])
         choose_index = input(start_description + "\n")
         divide()
-        if choose_index not in ["1", "2", "3", "4", "5", "6", "7"]:
+        if choose_index not in ["1", "2", "3", "4", "5", "6", "7", "8"]:
             print("请输入正确的序号！")
             divide()
         else:
-            if choose_index == "7":
+            if choose_index == "8":
                 print("成功退出程序！")
                 divide()
                 break

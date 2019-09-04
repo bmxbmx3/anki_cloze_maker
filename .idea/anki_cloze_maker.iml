@@ -6,7 +6,7 @@
       <sourceFolder url="file://$MODULE_DIR$/anki_cloze_maker/code" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/anki_cloze_maker" isTestSource="false" />
     </content>
-    <orderEntry type="inheritedJdk" />
+    <orderEntry type="jdk" jdkName="Python 3.7 (anki_cloze_maker)" jdkType="Python SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
   </component>
   <component name="TestRunnerService">
