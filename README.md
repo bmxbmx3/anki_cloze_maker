@@ -81,6 +81,8 @@ anki_cloze_maker通过算法计算出一些词的重要程度，如从这句话�
 
 即对文本的关键词添加{{c[索引]::[关键词]}}的填空符，可生成填空。
 
+如果你对anki填空模板及填空符的使用依然不懂，可以看[这篇文章](https://zhuanlan.zhihu.com/p/21483899)。
+
 ## 文本编码
 导入anki_cloze_maker处理的.txt文件必须是utf-8编码格式，不然可能会出现异常。同时anki_cloze_maker输出的.txt文件也为utf-8编码格式。
 ### 小技巧
