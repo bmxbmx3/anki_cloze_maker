@@ -44,8 +44,11 @@ def set_stop_words(stop_words={""}):
     all_tag_words = all_tag_words - all_stop_words
     open_file(config_constant.TAG_WORDS_PATH, "w", all_tag_words)
 
-    # 同步关键词库到新词库中。
-    sync_tag_to_new()
+    # 从新词库中去除停止词库的词。
+    all_new_words = open_file(config_constant.NEW_WORDS_PATH, "r")
+    all_stop_words = open_file(config_constant.STOP_WORDS_PATH, "r")
+    all_new_words = all_new_words - all_stop_words
+    open_file(config_constant.NEW_WORDS_PATH, "w", all_new_words)
 
 
 def set_tag_words(tag_words={""}):
