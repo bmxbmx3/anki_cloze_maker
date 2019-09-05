@@ -6,6 +6,7 @@ def open_file(path, operator, new_set={""}):
     读写.txt文件,支持“r/w/a”。
     :param path:读写的文件路径。
     :param operator:读/写操作。
+    :param new_set:写入时所需的词的集合。
     :return:如果读，以集合形式返回读出的文本；如果写，什么也不返回。
     """
     with open(path, operator, encoding="utf-8") as f:
