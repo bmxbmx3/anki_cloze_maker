@@ -17,6 +17,7 @@
     + [文件格式](#文件格式)
     + [空格](#空格)
   * [使用说明](#使用说明)
+    + [教学视频](#教学视频)
     + [检查python3安装环境](#检查python3安装环境)
     + [检查所缺依赖库](#检查所缺依赖库)
     + [运行anki_cloze_maker](#运行anki_cloze_maker)
@@ -191,6 +192,8 @@ anki_cloze_maker按照anki手册的规范，将每一行文本当作单独的卡
 
 
 ## 使用说明
+### 教学视频
+如果你对readme.md的文档描述不感兴趣，想快速上手，可以看anki_clzoe_maker的这个[教学视频](https://www.bilibili.com/video/av66711725)。
 ### 检查python3安装环境
 anki_cloze_maker只是一个python脚本文件,为了易用性和可修改性并没有打包，故在这之前需要检查你的电脑[是否已配置好python3的环境](https://blog.csdn.net/gaoxiaoba/article/details/52385135)，同时检查[系统变量是否有python的安装路径](https://blog.csdn.net/CatStarXcode/article/details/79715530)。如已有python3，可用python的解释器运行本程序。
 ### 检查所缺依赖库
