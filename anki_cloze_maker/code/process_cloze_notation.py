@@ -15,7 +15,7 @@ def get_tag_from_cloze(in_path, out_path=""):
     :param out_path: 输出的文件路径（暂时不用）。
     :return: 无。
     """
-    pattern = re.compile(r"{{c\d+::(?P<value>.*?)}}")
+    pattern = re.compile(r"{{c\d+::((?P<value>[^:]*).*?)}}")
     tag_words = set()
     with open(in_path, "r", encoding="utf-8") as f:
         while True:
@@ -36,7 +36,7 @@ def remove_cloze_index(in_path, out_path):
     :param out_path: 输出文件的路径。
     :return: 无。
     """
-    pattern = re.compile(r"{{c\d+::(?P<value>.*?)}}")
+    pattern = re.compile(r"{{c\d+::((?P<value>[^:]*).*?)}}")
     with open(in_path, "r", encoding="utf-8") as f_in:
         result = []
         while True:
@@ -73,7 +73,7 @@ def add_cloze_index(in_path, out_path):
     :param out_path:输出文件的路径。
     :return:无。
     """
-    pattern = re.compile(r"{{c\d+::(?P<value>.*?)}}")
+    pattern = re.compile(r"{{c\d+::((?P<value>[^:]*).*?)}}")
     with open(in_path, "r", encoding="utf-8") as f_in:
         result = []
         tmp = []
@@ -96,7 +96,7 @@ def remove_cloze(in_path, out_path):
     :param out_path: 输出文件的路径。
     :return:无。
     """
-    pattern = re.compile(r"{{c\d+::(?P<value>.*?)}}")
+    pattern = re.compile(r"{{c\d+::((?P<value>[^:]*).*?)}}")
     with open(in_path, "r", encoding="utf-8") as f_in:
         result = []
         while True:
