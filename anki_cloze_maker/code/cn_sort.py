@@ -102,5 +102,5 @@ def cnsort(nline):
 
 if __name__ == "__main__":
     # 排序中文字符
-    tag_sort = cnsort(["人民", "太阳", "人们", "太"])
+    tag_sort = cnsort(["太阳","人民", "人们", "太"])
     print('输出：', tag_sort)

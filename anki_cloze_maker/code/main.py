@@ -163,16 +163,14 @@ def ask_to_set_blanks_rate():
 def ask_to_sync_stop_words():
     """
     交互式询问更新本地停止词库。
-    :return:
+    :return:无。
     """
-    answer = input("你是否要更新停止词库？[y/n]\n")
+    answer = input("你是否要更新本地的停止词库？[y/n]\n")
     divide()
     if answer == "y":
-        api_path = get_file_path("api")
-        sync_local_stop_words(api_path)
-        print("成功更新本地停止词库！")
+        sync_local_stop_words()
+        print("成功更新本地本地的停止词库！")
         divide()
-
 
 def ask_to_set_root_path():
     """
@@ -282,7 +280,7 @@ def main():
             "5": ask_to_sync_stop_words,
             "6": ask_to_set_root_path,
             "7": ask_to_operate_cloze,
-            "8": ""}
+            "8":""}
         start_description = "\n".join(["请选择以下操作[按序号]：",
                                        "1.建立填空",
                                        "2.自定义空格率",

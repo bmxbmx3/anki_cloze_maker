@@ -5,7 +5,7 @@ import process_config as pg
 
 class config_constant:
     CONFIG_PATH = "./config.ini"
-    API_PATH = ""
+    STOP_WORDS_API_PATH = ""
     NEW_WORDS_PATH = ""
     STOP_WORDS_PATH = ""
     TAG_WORDS_PATH = ""
@@ -18,7 +18,7 @@ class config_constant:
 
     @staticmethod
     def init_all_constant():
-        config_constant.API_PATH = pg.get_file_path("api")
+        config_constant.STOP_WORDS_API_PATH = pg.get_file_path("stop_words_api")
         config_constant.NEW_WORDS_PATH = pg.get_file_path("new_words")
         config_constant.STOP_WORDS_PATH = pg.get_file_path("stop_words")
         config_constant.TAG_WORDS_PATH = pg.get_file_path("tag_words")

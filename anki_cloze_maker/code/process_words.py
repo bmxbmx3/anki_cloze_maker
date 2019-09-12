@@ -1,15 +1,14 @@
 import requests
-
 from process_words_txt import *
+from constant import config_constant
 
-
-def sync_local_stop_words(api_path):
+def sync_local_stop_words():
     """
     更新停止词库。
-    :param api_path:调用的请求api。
     :return: 无。
     """
-    r = requests.get(api_path)
+    stop_words_api_path=config_constant.STOP_WORDS_API_PATH
+    r = requests.get(stop_words_api_path)
     stop_words_list = r.text.strip("\n").split("\n")
     stop_words_list_sorted = cnsort(stop_words_list)
     stop_words_list_sorted = ["".join([stop_word, "\n"]) for stop_word in stop_words_list_sorted]
