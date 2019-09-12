@@ -1,4 +1,5 @@
 #更新新词库到本地。
+
 import asyncio
 import time
 from multiprocessing.pool import Pool
@@ -6,7 +7,7 @@ import aiohttp
 
 def sync_local_new_words():
     """
-    请求api获取新词库。
+    请求api获取新词库，主运行入口。
     :return: 无。
     """
     main_get_html()
@@ -18,6 +19,12 @@ new_words_text_list=[]
 # 信号量，控制协程数，防止爬的过快
 sem = asyncio.Semaphore(5)
 async def get_text(url,num):
+    """
+    协程请求爬取的资料。
+    :param url: 爬取的网址。
+    :param num: 网址在列表中的对应索引（表示类别）。
+    :return: 返回爬取的内容。
+    """
     async with(sem):
         # async with是异步上下文管理器
         async with aiohttp.ClientSession() as session:  # 获取session
@@ -27,6 +34,12 @@ async def get_text(url,num):
 
 #解析请求的内容
 def multi_parse_html(new_words_text,num):
+    """
+    将爬取的内容进一步处理，并存储。
+    :param new_words_text: 待处理的爬取的内容。
+    :param num: 网址在列表中的对应索引（表示类别）。
+    :return: 无。
+    """
     category_chinese = ["互联网", "动物", "财经", "汽车", "成语","地名", "食物", "法律", "历史名人", "医学", "诗词"]
     pattern= compile("(.*?)[ ]*\t[ ]*\d+[\r\n]")
     new_words_list=pattern.findall(new_words_text)
@@ -40,16 +53,22 @@ def multi_parse_html(new_words_text,num):
     with open(path, "w",encoding="utf-8") as f:
         f.writelines(tmp_list)
 
-#多进程处理内容
 def main_parse_html():
+    """
+    多进程处理爬取的内容。
+    :return: 无。
+    """
     p = Pool(4)
     for  i in new_words_text_list:
         p.apply_async(multi_parse_html,args=(i[0],i[1]))
     p.close()
     p.join()
 
-#协程请求
 def main_get_html():
+    """
+    协程请求
+    :return: 无。
+    """
     category=["IT","animal","caijing","car","chengyu","diming","food","law","lishimingren","medical","poem"]
 
     # 获取事件循环
@@ -62,6 +81,7 @@ def main_get_html():
     loop.close()
 
 if __name__=="__main__":
+    #time为检查运行时间。
     time_start = time.time()
     sync_local_new_words()
     time_end = time.time()
