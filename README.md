@@ -261,7 +261,7 @@ anki_cloze_maker只是一个python脚本文件,为了易用性和可修改性并
 ##### 3. 自定义新词/关键词/停止词
 按照提示设置你自定的新词、关键词、停止词，并加入到相应的库中。
 ###### 小技巧
-如果你对anki_cloze_maker的中文分词有特殊的专业性的需求，比如想对一篇关于互联网等专业性较强的文章进行更为细致的分词，可以从[anki_cloze_maker/res/new_words_dict](https://github.com/bmxbmx3/anki_cloze_maker/tree/master/anki_cloze_maker/res/new_words_dict)文件夹下anki_cloze_maker提供的内置专业性词库中选取适合你专业性需求的对应词库，再复制到[anki_cloze_maker/res](https://github.com/bmxbmx3/anki_cloze_maker/tree/master/anki_cloze_maker/res)文件夹下，并重命名为“new_words.txt”，并执行序号3的操作，输入命令`new`更新新词库。
+如果你对anki_cloze_maker的中文分词有特殊的专业性的需求，比如想对一篇关于互联网等专业性较强的文章进行更为细致的分词，可以从[anki_cloze_maker/res/new_words_dict](https://github.com/bmxbmx3/anki_cloze_maker/tree/master/anki_cloze_maker/res/new_words_dict)文件夹下anki_cloze_maker提供的内置专业性词库中选取适合你专业性需求的对应词库，再复制到[anki_cloze_maker/res](https://github.com/bmxbmx3/anki_cloze_maker/tree/master/anki_cloze_maker/res)文件夹下，并重命名为“new_words.txt”，替代原有的“new_words.txt”文件，并执行序号3的操作，输入命令`new`更新新词库。
 ##### 4. 设置anki填空符索引
 anki_cloze_maker默认添加填空符的形式为{{c[索引]::[关键词]}}，如以下：
 
