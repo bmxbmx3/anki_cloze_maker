@@ -125,7 +125,7 @@ anki_cloze_maker只对关键词生成填空符，关键词包括jieba的tf-idf�
 
 自定义的关键主要存在关键词库[tag_words.txt](https://github.com/bmxbmx3/anki_cloze_maker/blob/master/anki_cloze_maker/res/tag_words.txt)中。
 ##### 注意
-如果总关键词数超过了你所期望的空格数，系统则按如下公式计算关键词数：
+如果总关键词数超过了你所期望的空格数，系统则按如下公式计算你所期望的总关键词：
 
 1. 总关键词数=自定义的关键词数+tf-idf算法查找的关键词数
 
