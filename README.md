@@ -42,7 +42,7 @@ github用户“linhx13”等人所作的[结巴中文分词](https://github.com/
 
 ### 中文停止词库来源
 
-github用户“yinzm”所作的[常用的中文停用词表](https://github.com/yinzm/ChineseStopWords#中文常用停用词表)，anki_cloze_maker使用它过滤不必要的词，不会生成填空符。
+github用户“yinzm”所作的[常用的中文停用词表](https://github.com/yinzm/ChineseStopWords)，anki_cloze_maker使用它过滤不必要的词，不会生成填空符。
 
 ### 中文分类新词库来源
 
@@ -304,11 +304,11 @@ main.py`命令启动本程序。
 
 ###### 注意
 
-+ 输入的源文件的路径必须存在，且结尾一定加.txt后缀名，格式为“[源文件存放的文件夹的路径]/[源文件名].txt”。如：
++ 输入的源文件的路径必须存在，且结尾一定加.txt后缀名，格式为“\[源文件存放的文件夹的路径\]/\[源文件名\].txt”。如：
 
 > D:/文件/源文件.txt
 
-+ 输出的目标文件的路径的结尾一定加.txt后缀名，格式为“[目标文件存放的文件夹的路径]/[目标文件名].txt”。如：
++ 输出的目标文件的路径的结尾一定加.txt后缀名，格式为“\[目标文件存放的文件夹的路径\]/\[目标文件名\].txt”。如：
 
 > D:/文件/目标文件.txt
 
@@ -322,11 +322,11 @@ main.py`命令启动本程序。
 
 ###### 小技巧
 
-如果你对anki_cloze_maker的中文分词有特殊的专业性的需求，即让anki_cloze_maker可以识别更为专业的术语，比如想对一篇关于互联网等专业性较强的文章进行更为细致的分词，可以从[anki_cloze_maker/res/new_words_dict](https://github.com/bmxbmx3/anki_cloze_maker/tree/master/anki_cloze_maker/res/new_words_dict)文件夹下anki_cloze_maker提供的内置专业性词库中选取适合你专业性需求的对应词库，再复制到[anki_cloze_maker/res](https://github.com/bmxbmx3/anki_cloze_maker/tree/master/anki_cloze_maker/res)文件夹下，并重命名为“new_words.txt”，替代原有的“new_words.txt”文件即可。
+如果你对anki_cloze_maker的中文分词有特殊的专业性的需求，即让anki_cloze_maker可以识别更为专业的术语，比如想对一篇关于互联网等专业性较强的文章进行更为细致的分词，可以从\[anki_cloze_maker/res/new_words_dict\](https://github.com/bmxbmx3/anki_cloze_maker/tree/master/anki_cloze_maker/res/new_words_dict)文件夹下anki_cloze_maker提供的内置专业性词库中选取适合你专业性需求的对应词库，再复制到[anki_cloze_maker/res](https://github.com/bmxbmx3/anki_cloze_maker/tree/master/anki_cloze_maker/res)文件夹下，并重命名为“new_words.txt”，替代原有的“new_words.txt”文件即可。
 
 ##### 4\. 设置anki填空符索引
 
-anki_cloze_maker默认添加填空符的形式为{{c[索引]::[关键词]}}，如以下：
+anki_cloze_maker默认添加填空符的形式为{{c\[索引]::\[关键词]}}，如以下：
 
 > 我看到远方连绵起伏的{{c1::雪山}}，在{{c2::太阳}}的映照下泛着一层耀眼的{{c3::银光}。
 
@@ -334,7 +334,7 @@ anki_cloze_maker默认添加填空符的形式为{{c[索引]::[关键词]}}，�
 
 这样做的好处是你可以对同一段文本分批次挖空记忆（见最开始的“启发”一栏），从而减小你的记忆负担。
 
-当然如果你想让一段文本一次性出现多个空，就可让anki_cloze_maker将填空符的形式变为{{c1::[关键词]}}的形式，即取消索引，如以下：
+当然如果你想让一段文本一次性出现多个空，就可让anki_cloze_maker将填空符的形式变为{{c1::\[关键词]}}的形式，即取消索引，如以下：
 
 > 我看到远方连绵起伏的{{c1::雪山}}，在{{c1::太阳}}的映照下泛着一层耀眼的{{c1::银光}。
 
@@ -349,7 +349,7 @@ anki_cloze_maker默认添加填空符的形式为{{c[索引]::[关键词]}}，�
 anki_cloze_maker文件根目录即anki_cloze_maker所在的文件路径。
 
 根目录格式为：
-> [你自定的文件夹的绝对路径]/anki_cloze_maker
+> \[你自定的文件夹的绝对路径\]/anki_cloze_maker
 
 ##### 7\. 对填空符的操作
 
