@@ -4,6 +4,7 @@ import os
 from process_config import set_blanks_rate, get_file_path, set_path, set_cloze_index_switch
 from process_text import *
 from process_cloze_notation import *
+import cn_sort.process_cn_word as process_cn_word
 
 
 def divide():
@@ -306,4 +307,5 @@ def main():
 
 
 if __name__ == "__main__":
+    process_cn_word.set_stdout_level("CRITICAL")  # 抑制终端日志显示
     main()

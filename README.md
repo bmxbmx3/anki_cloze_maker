@@ -258,7 +258,7 @@ anki_cloze_maker只是一个python脚本文件,为了易用性和可修改性并
 
 ### 检查所缺依赖库
 
-运行前通过[pip安装一些必要的相关依赖库](https://blog.csdn.net/u012386109/article/details/79778153)，最主要的是jieba、request这两个库，可以参考[python一键安装全部依赖包](https://www.jianshu.com/p/b00277344528)。
+运行前通过[pip安装一些必要的相关依赖库](https://blog.csdn.net/u012386109/article/details/79778153)，最主要的是jieba、request、cn_sort这几个库，可以参考[python一键安装全部依赖包](https://www.jianshu.com/p/b00277344528)。
 
 ### 运行anki_cloze_maker
 
@@ -449,7 +449,7 @@ anki_cloze_maker文件根目录即anki_cloze_maker所在的文件路径。
 
 ### tf-idf文本分析
 
-anki_cloze_maker借助结巴中文分词的tf-idf算法对文本进行分析后，按权重提取关键词并添加填空符，如果你对tf-idf算法及文本分析比较感兴趣，可以参阅油管主播“开发者学堂”所作的[python文本数据分析系列视频](https://www.youtube.com/watch?v=Xs3hFjGICwg&list=PLGmd9-PCMLhY4tBzO_lCWUUYnF2GmVj1o)。
+anki_cloze_maker借助结巴中文分词的tf-idf算法对文本进行分析后，按权重提取关键词并添加填空符，如果你对tf-idf算法及文本分析比较感兴趣，可以参阅油管主播“开发者学堂”所作的[python文本数据分析系列视频](https://www.youtube.com/watch?v=Xs3hFjGICwg&list=PLGmd9-PCMLhY4tBzO_lCWUUYnF2GmVj1o)<!-- @IGNORE PREVIOUS: link -->。
 
 ### 词库中文字符排序
 

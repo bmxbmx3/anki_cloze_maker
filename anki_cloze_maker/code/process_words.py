@@ -1,7 +1,8 @@
 import requests
+import cn_sort.process_cn_word as process_cn_word
 from process_words_txt import *
 from constant import config_constant
-from cn_sort.process_cn_word import *
+
 
 def sync_local_stop_words():
     """
@@ -11,7 +12,7 @@ def sync_local_stop_words():
     stop_words_api_path=config_constant.STOP_WORDS_API_PATH
     r = requests.get(stop_words_api_path)
     stop_words_list = r.text.strip("\n").split("\n")
-    stop_words_list_sorted = list(sort_text_list(stop_words_list))
+    stop_words_list_sorted = list(process_cn_word.sort_text_list(stop_words_list))
     stop_words_list_sorted = ["".join([stop_word, "\n"]) for stop_word in stop_words_list_sorted]
     stop_words_list_sorted[-1] = stop_words_list_sorted[-1].strip("\n")
     with open(config_constant.STOP_WORDS_PATH, "w", encoding="utf-8") as f:

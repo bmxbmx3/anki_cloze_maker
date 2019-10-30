@@ -1,5 +1,5 @@
 # 读写res文件下new_words.txt、stop_words.txt、tag_words.txt。
-from cn_sort.process_cn_word import *
+import cn_sort.process_cn_word as process_cn_word
 
 def open_file(path, operator, new_set={""}):
     """
@@ -22,7 +22,7 @@ def open_file(path, operator, new_set={""}):
             return tmp_set
         elif operator == "w":
             # 对元素排序。
-            lines = list(sort_text_list(list(new_set)))
+            lines = list(process_cn_word.sort_text_list(list(new_set)))
             # 防止读取空文件，否则lines[-1].strip("\n")会出错。
             if not lines:
                 lines.append("")
@@ -36,7 +36,7 @@ def open_file(path, operator, new_set={""}):
             add_set = new_set - old_set
             if len(add_set) != 0:
                 # 对元素排序。
-                lines = list(sort_text_list(list(add_set)))
+                lines = list(process_cn_word.sort_text_list(list(add_set)))
                 lines = ["".join([line, "\n"]) for line in lines]
                 lines[-1] = lines[-1].strip("\n")
                 # 如果读入的原文件为空，就不要另起一行，否则另起下一行插入。
